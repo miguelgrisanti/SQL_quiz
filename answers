@@ -1,0 +1,16 @@
+Q1: Find all student names and numbers for students who do not take CS112.
+SELECT sno, sname
+FROM student
+WHERE sno NOT IN (SELECT sno
+                    FROM take
+                    WHERE cno = 'CS112')
+GROUP BY sno, sname;
+
+ sno |  sname  
+-----+---------
+   5 | STEVE
+   8 | KAY
+   7 | BRIAN
+   9 | GILLIAN
+   6 | JING
+  10 | CHAD
